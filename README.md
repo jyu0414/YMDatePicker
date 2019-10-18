@@ -9,7 +9,7 @@ The calendar-style date picker with weekly and monthly mode
 
 ## Contact
 
-Yuji Sasaki
-Masakaz Ozaki
+[Yuji Sasaki https://sasaki.dev]
+[Masakaz Ozaki https://masakaz.com]
 
 ## License
