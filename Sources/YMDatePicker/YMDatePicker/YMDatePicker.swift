@@ -7,13 +7,15 @@
 
 import UIKit
 
-class YMDatePicker: UIControl {
+@IBDesignable
+open class YMDatePicker: UIControl {
     
     //MARK: Properties
     private var view: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var calendar: UICollectionView!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var toggleButton: UIButton!
     
     var selectedDate: Date = Calendar.current.startOfDay(for: Date()) {
         didSet {
@@ -40,7 +42,7 @@ class YMDatePicker: UIControl {
 
     //MARK: Make from storyboard.
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         instatinateFromNib()
     }
@@ -65,9 +67,8 @@ class YMDatePicker: UIControl {
             ])
         self.view = view
         
-        //
         calendar.register(
-            UINib(nibName: "YMDatePickerCell", bundle: Bundle(for: type(of: self))),
+            UINib(nibName: "YMCalendarCell", bundle: Bundle(for: type(of: self))),
             forCellWithReuseIdentifier: "cell"
         )
         calendar.allowsSelection = true
@@ -81,7 +82,9 @@ class YMDatePicker: UIControl {
     
     @IBAction func toggleCalendarMode() {
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
-            //self.toggleButton.imageView?.transform = (self.toggleButton.imageView?.transform.rotated(by: CGFloat.pi))!
+            if let imageView = self.toggleButton.imageView {
+                imageView.transform = imageView.transform.rotated(by: CGFloat.pi)
+            }
         })
         isMinimum.toggle()
         sendActions(for: UIControl.Event.touchUpInside)
