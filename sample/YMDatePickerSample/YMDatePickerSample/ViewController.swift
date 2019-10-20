@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import YMDatePicker
 
 class ViewController: UIViewController {
     
-    @IBOutlet private weak var ymDatePicker: YMCalendar!
+    @IBOutlet private weak var ymDatePicker: YMDatePicker!
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var label: UILabel!
 

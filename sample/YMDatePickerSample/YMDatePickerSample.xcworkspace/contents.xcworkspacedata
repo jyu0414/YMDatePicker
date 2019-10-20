@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../Sources/YMDatePicker/YMDatePicker.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:YMDatePickerSample.xcodeproj">
    </FileRef>
 </Workspace>
