@@ -16,8 +16,8 @@
 		E7B6CF76235CA054007D2D82 /* YMCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B6CF75235CA054007D2D82 /* YMCalendar.swift */; };
 		E7B6CF78235CA085007D2D82 /* YMCalendar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B6CF77235CA085007D2D82 /* YMCalendar.xib */; };
 		E7B6CF7A235CA0A4007D2D82 /* YMCalendar+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B6CF79235CA0A4007D2D82 /* YMCalendar+CollectionView.swift */; };
-		E7B6CF7C235CA0B6007D2D82 /* YMCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B6CF7B235CA0B6007D2D82 /* YMCalendarCollectionViewCell.swift */; };
-		E7B6CF7E235CA0CF007D2D82 /* YMCalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B6CF7D235CA0CF007D2D82 /* YMCalendarCollectionViewCell.xib */; };
+		E7B6CF7C235CA0B6007D2D82 /* YMCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B6CF7B235CA0B6007D2D82 /* YMCalendarCell.swift */; };
+		E7B6CF7E235CA0CF007D2D82 /* YMCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B6CF7D235CA0CF007D2D82 /* YMCalendarCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		E7B6CF75235CA054007D2D82 /* YMCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMCalendar.swift; sourceTree = "<group>"; };
 		E7B6CF77235CA085007D2D82 /* YMCalendar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMCalendar.xib; sourceTree = "<group>"; };
 		E7B6CF79235CA0A4007D2D82 /* YMCalendar+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YMCalendar+CollectionView.swift"; sourceTree = "<group>"; };
-		E7B6CF7B235CA0B6007D2D82 /* YMCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
-		E7B6CF7D235CA0CF007D2D82 /* YMCalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMCalendarCollectionViewCell.xib; sourceTree = "<group>"; };
+		E7B6CF7B235CA0B6007D2D82 /* YMCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMCalendarCell.swift; sourceTree = "<group>"; };
+		E7B6CF7D235CA0CF007D2D82 /* YMCalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMCalendarCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +84,8 @@
 				E7B6CF75235CA054007D2D82 /* YMCalendar.swift */,
 				E7B6CF77235CA085007D2D82 /* YMCalendar.xib */,
 				E7B6CF79235CA0A4007D2D82 /* YMCalendar+CollectionView.swift */,
-				E7B6CF7B235CA0B6007D2D82 /* YMCalendarCollectionViewCell.swift */,
-				E7B6CF7D235CA0CF007D2D82 /* YMCalendarCollectionViewCell.xib */,
+				E7B6CF7B235CA0B6007D2D82 /* YMCalendarCell.swift */,
+				E7B6CF7D235CA0CF007D2D82 /* YMCalendarCell.xib */,
 			);
 			path = YMCalendar;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7B6CF7E235CA0CF007D2D82 /* YMCalendarCollectionViewCell.xib in Resources */,
+				E7B6CF7E235CA0CF007D2D82 /* YMCalendarCell.xib in Resources */,
 				E7B6CF6D235C9FFA007D2D82 /* LaunchScreen.storyboard in Resources */,
 				E7B6CF6A235C9FFA007D2D82 /* Assets.xcassets in Resources */,
 				E7B6CF68235C9FF9007D2D82 /* Main.storyboard in Resources */,
@@ -165,7 +165,7 @@
 			files = (
 				E7B6CF65235C9FF9007D2D82 /* ViewController.swift in Sources */,
 				E7B6CF61235C9FF9007D2D82 /* AppDelegate.swift in Sources */,
-				E7B6CF7C235CA0B6007D2D82 /* YMCalendarCollectionViewCell.swift in Sources */,
+				E7B6CF7C235CA0B6007D2D82 /* YMCalendarCell.swift in Sources */,
 				E7B6CF63235C9FF9007D2D82 /* SceneDelegate.swift in Sources */,
 				E7B6CF76235CA054007D2D82 /* YMCalendar.swift in Sources */,
 				E7B6CF7A235CA0A4007D2D82 /* YMCalendar+CollectionView.swift in Sources */,

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XC1-Tm-r6n" customClass="YMCalendarCell">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyd-Id-Oh4">
+                        <rect key="frame" x="2.5" y="0.0" width="75" height="75"/>
+                        <color key="backgroundColor" red="0.83921568629999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Nyd-Id-Oh4" secondAttribute="height" id="tBF-uw-L07"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oH-4S-AUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
+                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Nyd-Id-Oh4" secondAttribute="bottom" id="1yF-6I-YAD"/>
+                <constraint firstAttribute="trailing" secondItem="9oH-4S-AUZ" secondAttribute="trailing" id="MGP-8z-MrE"/>
+                <constraint firstItem="Nyd-Id-Oh4" firstAttribute="centerX" secondItem="XC1-Tm-r6n" secondAttribute="centerX" id="QSP-XA-DhB"/>
+                <constraint firstAttribute="bottom" secondItem="9oH-4S-AUZ" secondAttribute="bottom" id="Qhx-ft-qI6"/>
+                <constraint firstItem="9oH-4S-AUZ" firstAttribute="top" secondItem="XC1-Tm-r6n" secondAttribute="top" id="VHs-dx-jQE"/>
+                <constraint firstItem="9oH-4S-AUZ" firstAttribute="leading" secondItem="XC1-Tm-r6n" secondAttribute="leading" id="aND-Z1-s0U"/>
+                <constraint firstItem="Nyd-Id-Oh4" firstAttribute="top" secondItem="XC1-Tm-r6n" secondAttribute="top" id="ong-zL-c9h"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="lsA-Lv-cKS"/>
+            <size key="customSize" width="80" height="75"/>
+            <connections>
+                <outlet property="bgView" destination="Nyd-Id-Oh4" id="521-me-lQ3"/>
+                <outlet property="number" destination="9oH-4S-AUZ" id="M8k-nM-YwF"/>
+            </connections>
+            <point key="canvasLocation" x="672" y="165.06746626686657"/>
+        </collectionViewCell>
+    </objects>
+</document>
