@@ -7,7 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YMCalendar" customModule="YMDatePickerSample" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YMCalendar" customModule="YMDatePickerSample" customModuleProvider="target">
+            <connections>
+                <outlet property="calendarCollectionView" destination="RYV-VP-FUj" id="rol-q6-UhW"/>
+                <outlet property="calendarCollectionViewHeight" destination="xU5-ah-51z" id="JcQ-lq-AE0"/>
+                <outlet property="title" destination="lVS-50-bZ9" id="e2u-IY-Hrr"/>
+                <outlet property="toggleButton" destination="FwU-tA-OeA" id="iQ5-5g-XBx"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="o7N-Sf-yuU">
             <rect key="frame" x="0.0" y="0.0" width="376" height="248"/>
@@ -31,6 +38,9 @@
                                         <constraint firstAttribute="width" secondItem="FwU-tA-OeA" secondAttribute="height" id="vyh-nI-hF9"/>
                                     </constraints>
                                     <state key="normal" image="FilterPullDownImage"/>
+                                    <connections>
+                                        <action selector="toggleCalendarSize" destination="-1" eventType="touchUpInside" id="0dz-Wq-4eX"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -63,6 +73,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Js8-C4-V0b"/>
+                        <outlet property="delegate" destination="-1" id="Og3-7a-jCq"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <constraints>
@@ -82,6 +96,6 @@
         </view>
     </objects>
     <resources>
-        <image name="FilterPullDownImage" width="16" height="16"/>
+        <image name="FilterPullDownImage" width="20" height="13"/>
     </resources>
 </document>
