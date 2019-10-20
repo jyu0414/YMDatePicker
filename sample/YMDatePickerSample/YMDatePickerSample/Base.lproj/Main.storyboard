@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BEm-P9-CVk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BEm-P9-CVk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--InputView-->
+        <!--Custom Keyboard-->
         <scene sceneID="Cus-QU-E8J">
             <objects>
-                <viewController id="xBU-Ig-dYi" sceneMemberID="viewController">
+                <viewController id="xBU-Ig-dYi" customClass="KeyboardViewController" customModule="YMDatePickerSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XVY-7U-OHG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA4-mo-mvT">
-                                <rect key="frame" x="184" y="599" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ht-hB-axc">
-                                <rect key="frame" x="139" y="214" width="136" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="54"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytV-XE-PVG">
                                 <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                                 <items>
-                                    <navigationItem title="InputView" id="i5j-Rx-DZF"/>
+                                    <navigationItem title="Custom Keyboard" id="i5j-Rx-DZF"/>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to Select Date!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lym-0B-8kW">
+                                <rect key="frame" x="16" y="431" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ytV-XE-PVG" firstAttribute="leading" secondItem="tvk-ap-ZmB" secondAttribute="leading" id="8GI-51-gcA"/>
                             <constraint firstItem="ytV-XE-PVG" firstAttribute="top" secondItem="tvk-ap-ZmB" secondAttribute="top" id="XoD-pY-BJk"/>
+                            <constraint firstItem="lym-0B-8kW" firstAttribute="centerY" secondItem="XVY-7U-OHG" secondAttribute="centerY" id="aBc-l4-tP5"/>
+                            <constraint firstItem="lym-0B-8kW" firstAttribute="leading" secondItem="tvk-ap-ZmB" secondAttribute="leading" constant="16" id="jcY-ul-Ira"/>
+                            <constraint firstItem="tvk-ap-ZmB" firstAttribute="trailing" secondItem="lym-0B-8kW" secondAttribute="trailing" constant="16" id="n9r-Rq-2Wd"/>
                             <constraint firstItem="ytV-XE-PVG" firstAttribute="trailing" secondItem="tvk-ap-ZmB" secondAttribute="trailing" id="uqi-7J-Rkb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tvk-ap-ZmB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="InputView" id="Uwg-ek-TWh"/>
+                    <tabBarItem key="tabBarItem" title="Custom Keyboard" image="b.circle.fill" catalog="system" selectedImage="b.circle.fill" id="Uwg-ek-TWh"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="lym-0B-8kW" id="gdW-pe-FZm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rom-Q3-FuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,37 +65,44 @@
             </objects>
             <point key="canvasLocation" x="-1165" y="-581"/>
         </scene>
-        <!--DatePicker-->
+        <!--Normal Usage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="YMDatePickerSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NormalViewController" customModule="YMDatePickerSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbU-mU-eeR" customClass="YMDatePicker" customModule="YMDatePicker">
                                 <rect key="frame" x="8" y="140" width="398" height="102"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMinimum" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="datePickerSelectedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="vdR-3K-6Io"/>
+                                </connections>
                             </view>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yLg-6X-BdA">
                                 <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                                 <items>
-                                    <navigationItem title="YMDatePicker" id="fVY-Hp-RMS"/>
+                                    <navigationItem title="Normal Usage" id="fVY-Hp-RMS"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJd-DH-KDe">
                                 <rect key="frame" x="0.0" y="250" width="414" height="563"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipl-o4-N3a">
-                                        <rect key="frame" x="161" y="239.5" width="92.5" height="84"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Date!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipl-o4-N3a">
+                                        <rect key="frame" x="16" y="268.5" width="382" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ipl-o4-N3a" firstAttribute="centerX" secondItem="eJd-DH-KDe" secondAttribute="centerX" id="2FR-qc-RGv"/>
                                     <constraint firstItem="Ipl-o4-N3a" firstAttribute="centerY" secondItem="eJd-DH-KDe" secondAttribute="centerY" id="ij9-6q-pUe"/>
+                                    <constraint firstItem="Ipl-o4-N3a" firstAttribute="leading" secondItem="eJd-DH-KDe" secondAttribute="leading" constant="16" id="lKG-yb-HHx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ipl-o4-N3a" secondAttribute="trailing" constant="16" id="o59-vL-axe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -115,10 +121,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="DatePicker" id="tbH-9n-DoS"/>
+                    <tabBarItem key="tabBarItem" title="Normal Usage" image="a.circle.fill" catalog="system" selectedImage="a.circle.fill" id="tbH-9n-DoS"/>
                     <connections>
-                        <outlet property="navigationBar" destination="yLg-6X-BdA" id="cxY-YJ-QSy"/>
-                        <outlet property="ymDatePicker" destination="TbU-mU-eeR" id="i8T-3E-3nb"/>
+                        <outlet property="dateLabel" destination="Ipl-o4-N3a" id="adz-oN-Lre"/>
+                        <outlet property="datePicker" destination="TbU-mU-eeR" id="i8T-3E-3nb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,4 +132,8 @@
             <point key="canvasLocation" x="-248" y="-261"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="a.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="b.circle.fill" catalog="system" width="64" height="62"/>
+    </resources>
 </document>

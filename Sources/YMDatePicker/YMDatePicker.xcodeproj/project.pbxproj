@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAA8F3AA235CD9960056377B /* YMDatePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8F3A9235CD9960056377B /* YMDatePickerDelegate.swift */; };
 		BAB468C4235CA6EF00047AAD /* YMDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB468C2235CA6EF00047AAD /* YMDatePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAB468CB235CA76000047AAD /* YMDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB468CA235CA76000047AAD /* YMDatePicker.swift */; };
 		BAB468CD235CAC4C00047AAD /* YMDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB468CC235CAC4C00047AAD /* YMDatePicker.xib */; };
-		BAB468D1235CAF2400047AAD /* YMDatePicker+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB468D0235CAF2400047AAD /* YMDatePicker+Calendar.swift */; };
 		BAB468D3235CB5E500047AAD /* YMCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB468D2235CB5E500047AAD /* YMCalendarCell.swift */; };
 		E7D9E23F235CC0CA0084B373 /* YMCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7D9E23E235CC0CA0084B373 /* YMCalendarCell.xib */; };
 		E7D9E241235CC15F0084B373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D9E240235CC15F0084B373 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BAA8F3A9235CD9960056377B /* YMDatePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMDatePickerDelegate.swift; sourceTree = "<group>"; };
 		BAB468BF235CA6EF00047AAD /* YMDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YMDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB468C2235CA6EF00047AAD /* YMDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMDatePicker.h; sourceTree = "<group>"; };
 		BAB468C3235CA6EF00047AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB468CA235CA76000047AAD /* YMDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMDatePicker.swift; sourceTree = "<group>"; };
 		BAB468CC235CAC4C00047AAD /* YMDatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMDatePicker.xib; sourceTree = "<group>"; };
-		BAB468D0235CAF2400047AAD /* YMDatePicker+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YMDatePicker+Calendar.swift"; sourceTree = "<group>"; };
 		BAB468D2235CB5E500047AAD /* YMCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMCalendarCell.swift; sourceTree = "<group>"; };
 		E7D9E23E235CC0CA0084B373 /* YMCalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMCalendarCell.xib; sourceTree = "<group>"; };
 		E7D9E240235CC15F0084B373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,10 +61,10 @@
 				BAB468C2235CA6EF00047AAD /* YMDatePicker.h */,
 				BAB468C3235CA6EF00047AAD /* Info.plist */,
 				BAB468CA235CA76000047AAD /* YMDatePicker.swift */,
-				BAB468D0235CAF2400047AAD /* YMDatePicker+Calendar.swift */,
 				BAB468CC235CAC4C00047AAD /* YMDatePicker.xib */,
 				BAB468D2235CB5E500047AAD /* YMCalendarCell.swift */,
 				E7D9E23E235CC0CA0084B373 /* YMCalendarCell.xib */,
+				BAA8F3A9235CD9960056377B /* YMDatePickerDelegate.swift */,
 				E7D9E240235CC15F0084B373 /* Assets.xcassets */,
 			);
 			path = YMDatePicker;
@@ -154,7 +154,7 @@
 			files = (
 				BAB468D3235CB5E500047AAD /* YMCalendarCell.swift in Sources */,
 				BAB468CB235CA76000047AAD /* YMDatePicker.swift in Sources */,
-				BAB468D1235CAF2400047AAD /* YMDatePicker+Calendar.swift in Sources */,
+				BAA8F3AA235CD9960056377B /* YMDatePickerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +287,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7R974FN29R;
+				DEVELOPMENT_TEAM = WSAUVM3XKG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -313,7 +313,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7R974FN29R;
+				DEVELOPMENT_TEAM = WSAUVM3XKG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
