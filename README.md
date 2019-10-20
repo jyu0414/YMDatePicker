@@ -6,7 +6,7 @@ The calendar-style date picker with weekly and monthly mode
 Use [CocoaPods](http://cocoapods.org/)...
 
 ```
-pod 'YMDatePicker', :git => 'https://github.com/jyu0414/YMDatePicker.git'
+pod 'YMDatePicker', '~> 0.1'
 ```
 
 ## Usage
