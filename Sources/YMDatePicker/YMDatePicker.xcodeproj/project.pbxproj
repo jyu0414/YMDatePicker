@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		BAB468C4235CA6EF00047AAD /* YMDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB468C2235CA6EF00047AAD /* YMDatePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAB468CB235CA76000047AAD /* YMDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB468CA235CA76000047AAD /* YMDatePicker.swift */; };
+		BAB468CD235CAC4C00047AAD /* YMDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB468CC235CAC4C00047AAD /* YMDatePicker.xib */; };
+		BAB468CF235CACF000047AAD /* YMCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB468CE235CACF000047AAD /* YMCalendarCell.xib */; };
+		BAB468D1235CAF2400047AAD /* YMDatePicker+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB468D0235CAF2400047AAD /* YMDatePicker+Calendar.swift */; };
+		BAB468D3235CB5E500047AAD /* YMCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB468D2235CB5E500047AAD /* YMCalendarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BAB468BF235CA6EF00047AAD /* YMDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YMDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB468C2235CA6EF00047AAD /* YMDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMDatePicker.h; sourceTree = "<group>"; };
 		BAB468C3235CA6EF00047AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAB468CA235CA76000047AAD /* YMDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMDatePicker.swift; sourceTree = "<group>"; };
+		BAB468CC235CAC4C00047AAD /* YMDatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMDatePicker.xib; sourceTree = "<group>"; };
+		BAB468CE235CACF000047AAD /* YMCalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YMCalendarCell.xib; sourceTree = "<group>"; };
+		BAB468D0235CAF2400047AAD /* YMDatePicker+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YMDatePicker+Calendar.swift"; sourceTree = "<group>"; };
+		BAB468D2235CB5E500047AAD /* YMCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMCalendarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,11 @@
 			children = (
 				BAB468C2235CA6EF00047AAD /* YMDatePicker.h */,
 				BAB468C3235CA6EF00047AAD /* Info.plist */,
+				BAB468CA235CA76000047AAD /* YMDatePicker.swift */,
+				BAB468D0235CAF2400047AAD /* YMDatePicker+Calendar.swift */,
+				BAB468CC235CAC4C00047AAD /* YMDatePicker.xib */,
+				BAB468D2235CB5E500047AAD /* YMCalendarCell.swift */,
+				BAB468CE235CACF000047AAD /* YMCalendarCell.xib */,
 			);
 			path = YMDatePicker;
 			sourceTree = "<group>";
@@ -94,6 +109,7 @@
 				TargetAttributes = {
 					BAB468BE235CA6EF00047AAD = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -120,6 +136,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB468CD235CAC4C00047AAD /* YMDatePicker.xib in Resources */,
+				BAB468CF235CACF000047AAD /* YMCalendarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB468D3235CB5E500047AAD /* YMCalendarCell.swift in Sources */,
+				BAB468CB235CA76000047AAD /* YMDatePicker.swift in Sources */,
+				BAB468D1235CAF2400047AAD /* YMDatePicker+Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +280,7 @@
 		BAB468C8235CA6EF00047AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WSAUVM3XKG;
@@ -275,6 +297,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.YMDatePicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -283,6 +306,7 @@
 		BAB468C9235CA6EF00047AAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WSAUVM3XKG;

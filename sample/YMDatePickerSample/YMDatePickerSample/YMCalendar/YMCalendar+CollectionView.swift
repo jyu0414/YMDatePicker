@@ -3,56 +3,35 @@ import UIKit
 extension YMCalendar: UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 100
+        100
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if isMinimum {
-            return 7 * 2
-        }
-        else {
-            return 7 * 6
-        }
-        
+        isMinimum ? 7 * 2 : 7 * 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! YMCalendarCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? YMCalendarCell else {
+            fatalError("")
+        }
         
         if indexPath.row % rowCount == 0 {
-            
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ja")
             cell.number.text = formatter.shortWeekdaySymbols[indexPath.row / rowCount]
-            
-            if indexPath.row / rowCount == 0
-            {
-                cell.type = .Holiday
-            }
-            else
-            {
-                cell.type = .Weekday
-            }
-        }
-        else {
-            
+            cell.type = indexPath.row / rowCount == 0 ? .Holiday : .Weekday
+        } else {
             let cal = Calendar.current
             let targetDate = getDate(indexPath: indexPath)
-            
             cell.number.text = "\(cal.component(.day, from: targetDate))"
             
-            if targetDate == selectedDate
-            {
+            if targetDate == selectedDate {
                 cell.type = .SelectedDate
-            }
-            else if targetDate <= Date() {
+            } else if targetDate <= Date() {
                 cell.type = .UnavailableDate
-            }
-            else {
+            } else {
                 cell.type = .AvailableDate
             }
-            
         }
         
         return cell
@@ -92,22 +71,12 @@ extension YMCalendar: UICollectionViewDataSource , UICollectionViewDelegateFlowL
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月"
-        
-        var row: Int?
-        if isMinimum {
-            row = 2
-        }
-        else {
-            row = 37
-        }
-        
-        title.text = formatter.string(from: getDate(indexPath: IndexPath(row: row!, section: Int(scrollView.contentOffset.x / scrollView.frame.width))))
+        let row = isMinimum ? 2 : 37
+        title.text = formatter.string(from: getDate(indexPath: IndexPath(row: row, section: Int(scrollView.contentOffset.x / scrollView.frame.width))))
     }
     
     func scrollTo(date: Date) {
-        
         let firstDay = getDate(indexPath: IndexPath(row: 2, section: 0))
-        
         if isMinimum {
             calendarCollectionView.scrollToItem(at: IndexPath(row: 0, section: Calendar.current.dateComponents([.weekOfMonth], from: firstDay, to: date).weekOfMonth!), at: .left, animated: false)
         } else {
