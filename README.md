@@ -10,7 +10,7 @@ The calendar-style date picker with weekly and monthly mode
 Use [CocoaPods](http://cocoapods.org/)...
 
 ```
-pod 'YMDatePicker', '~> 0.1'
+pod 'YMDatePicker', '~> 0.3'
 ```
 
 You can also add YMDatePicker.xcproj to your project manually.
