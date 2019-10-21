@@ -28,7 +28,6 @@ class YMCalendarCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak private var bgView: UIView!
-    
 }
 
 enum DateType {

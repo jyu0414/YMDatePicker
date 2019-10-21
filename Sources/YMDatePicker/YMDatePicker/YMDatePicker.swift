@@ -60,9 +60,7 @@ open class YMDatePicker: UIControl {
     
     func instatinateFromNib() {
         //Load view from nib.
-        guard let view = Bundle(for: type(of: self)).loadNibNamed("YMDatePicker", owner: self, options: nil)?.first as? UIView else {
-            fatalError("")
-        }
+        let view = Bundle(for: type(of: self)).loadNibNamed("YMDatePicker", owner: self, options: nil)!.first as! UIView
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -72,7 +70,7 @@ open class YMDatePicker: UIControl {
             view.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
         self.view = view
-        
+
         calendar.register(
             UINib(nibName: "YMCalendarCell", bundle: Bundle(for: type(of: self))),
             forCellWithReuseIdentifier: "cell"
@@ -88,9 +86,7 @@ open class YMDatePicker: UIControl {
     
     @IBAction func toggleCalendarMode() {
         UIView.animate(withDuration: 0.3) {
-            if let imageView = self.toggleButton.imageView {
-                imageView.transform = imageView.transform.rotated(by: CGFloat.pi)
-            }
+            self.toggleButton.imageView!.transform = self.toggleButton.imageView!.transform.rotated(by: CGFloat.pi)
         }
         isMinimum.toggle()
         sendActions(for: UIControl.Event.touchUpInside)
@@ -99,11 +95,9 @@ open class YMDatePicker: UIControl {
     override open var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: self.intrinsicHeight)
     }
-
 }
 
 extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         100
     }
@@ -148,12 +142,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ja")
             cell.number.text = formatter.shortWeekdaySymbols[indexPath.row / rowCount]
-            
-            if indexPath.row / rowCount == 0 {
-                cell.type = .Holiday
-            } else {
-                cell.type = .Weekday
-            }
+            cell.type = indexPath.row / rowCount == 0 ? .Holiday : .Weekday
         } else {
             let cal = Calendar.current
             let targetDate = getDate(indexPath: indexPath)
