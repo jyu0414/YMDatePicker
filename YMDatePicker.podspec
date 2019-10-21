@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "YMDatePicker"
-  spec.version      = "0.1"
+  spec.version      = "0.2"
   spec.summary      = "The calendar-style date picker with weekly and monthly mode"
   spec.homepage     = "https://github.com/jyu0414/YMDatePicker"
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
