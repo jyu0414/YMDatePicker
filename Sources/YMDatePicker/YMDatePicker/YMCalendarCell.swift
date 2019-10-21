@@ -1,10 +1,3 @@
-//
-//  YMCalendarCell.swift
-//  YMDatePicker
-//
-//  Created by Yuji Sasaki on 2019/10/21.
-//
-
 import UIKit
 
 class YMCalendarCell: UICollectionViewCell {
@@ -35,7 +28,6 @@ class YMCalendarCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak private var bgView: UIView!
-    
 }
 
 enum DateType {

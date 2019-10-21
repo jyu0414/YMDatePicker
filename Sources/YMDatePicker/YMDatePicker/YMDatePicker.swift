@@ -1,10 +1,3 @@
-//
-//  YMDatePicker.swift
-//  YMDatePicker
-//
-//  Created by Yuji Sasaki on 2019/10/20.
-//
-
 import UIKit
 
 @IBDesignable
@@ -28,9 +21,9 @@ open class YMDatePicker: UIControl {
         didSet {
             calendarHeight.constant = isMinimum ? 70 : 216
             calendar.reloadData()
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.3) {
                 self.calendar.layoutIfNeeded()
-            })
+            }
             scroll(to: selectedDate)
             delegate?.ymDatePicker(self, didChange: controlHeight)
         }
@@ -53,9 +46,8 @@ open class YMDatePicker: UIControl {
             self.invalidateIntrinsicContentSize()
         }
     }
-
-    //MARK: Make from storyboard.
     
+    //MARK: Make from storyboard.
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         instatinateFromNib()
@@ -68,9 +60,7 @@ open class YMDatePicker: UIControl {
     
     func instatinateFromNib() {
         //Load view from nib.
-        guard let view = Bundle(for: type(of: self)).loadNibNamed("YMDatePicker", owner: self, options: nil)?.first as? UIView else {
-            fatalError("")
-        }
+        let view = Bundle(for: type(of: self)).loadNibNamed("YMDatePicker", owner: self, options: nil)!.first as! UIView
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -80,7 +70,7 @@ open class YMDatePicker: UIControl {
             view.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
         self.view = view
-        
+
         calendar.register(
             UINib(nibName: "YMCalendarCell", bundle: Bundle(for: type(of: self))),
             forCellWithReuseIdentifier: "cell"
@@ -95,11 +85,9 @@ open class YMDatePicker: UIControl {
     }
     
     @IBAction func toggleCalendarMode() {
-        UIView.animate(withDuration: 0.3, delay: 0, animations: {
-            if let imageView = self.toggleButton.imageView {
-                imageView.transform = imageView.transform.rotated(by: CGFloat.pi)
-            }
-        })
+        UIView.animate(withDuration: 0.3) {
+            self.toggleButton.imageView!.transform = self.toggleButton.imageView!.transform.rotated(by: CGFloat.pi)
+        }
         isMinimum.toggle()
         sendActions(for: UIControl.Event.touchUpInside)
     }
@@ -107,11 +95,9 @@ open class YMDatePicker: UIControl {
     override open var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: self.intrinsicHeight)
     }
-
 }
 
 extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         100
     }
@@ -120,8 +106,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
         isMinimum ? 7 * 2 : 7 * 6
     }
     
-    private func getDate(indexPath: IndexPath) -> Date
-    {
+    private func getDate(indexPath: IndexPath) -> Date {
         let line = indexPath.row % rowCount - 1
         let row = indexPath.row / rowCount
         let cal = Calendar.current
@@ -154,40 +139,22 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! YMCalendarCell
         
         if indexPath.row % rowCount == 0 {
-            
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ja")
             cell.number.text = formatter.shortWeekdaySymbols[indexPath.row / rowCount]
-            
-            if indexPath.row / rowCount == 0
-            {
-                cell.type = .Holiday
-            }
-            else
-            {
-                cell.type = .Weekday
-            }
-        }
-        else {
-            
+            cell.type = indexPath.row / rowCount == 0 ? .Holiday : .Weekday
+        } else {
             let cal = Calendar.current
             let targetDate = getDate(indexPath: indexPath)
-            
             cell.number.text = "\(cal.component(.day, from: targetDate))"
-            
-            if targetDate == selectedDate
-            {
+            if targetDate == selectedDate {
                 cell.type = .SelectedDate
-            }
-            else if targetDate <= Date() {
+            } else if targetDate <= Date() {
                 cell.type = .UnavailableDate
-            }
-            else {
+            } else {
                 cell.type = .AvailableDate
             }
-            
         }
-        
         return cell
     }
     
@@ -203,10 +170,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月"
-        
         let row = isMinimum ? 2 : 37
-        
         titleLabel.text = formatter.string(from: getDate(indexPath: IndexPath(row: row, section: Int(scrollView.contentOffset.x / scrollView.frame.width))))
     }
-
 }
