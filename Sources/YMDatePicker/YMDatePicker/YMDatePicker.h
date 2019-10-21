@@ -1,10 +1,3 @@
-//
-//  YMDatePicker.h
-//  YMDatePicker
-//
-//  Created by Yuji Sasaki on 2019/10/20.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for YMDatePicker.
