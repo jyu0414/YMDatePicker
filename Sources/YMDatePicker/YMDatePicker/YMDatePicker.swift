@@ -24,8 +24,8 @@ open class YMDatePicker: UIControl {
             
             calendar.reloadData()
             UIView.animate(withDuration: 0.3) {
-                self.frame.size.height = self.calendarHeight.constant + 32
-                self.view.layoutIfNeeded()
+                self.intrinsicHeight = self.controlHeight
+                self.layoutIfNeeded()
             }
             scroll(to: selectedDate)
             delegate?.ymDatePicker(self, didChange: controlHeight)
@@ -46,7 +46,8 @@ open class YMDatePicker: UIControl {
     
     public var intrinsicHeight: CGFloat = 70 {
         didSet {
-            self.invalidateIntrinsicContentSize()
+            frame.size.height = intrinsicHeight
+            invalidateIntrinsicContentSize()
         }
     }
     
@@ -87,14 +88,6 @@ open class YMDatePicker: UIControl {
         titleLabel.text = formatter.string(from: selectedDate)
     }
     
-    override open func draw(_ rect: CGRect){
-        super.draw(rect)
-        if isFirstLayout {
-            isFirstLayout = false
-            frame.size.height = calendarHeight.constant + 32
-        }
-    }
-    
     @IBAction func toggleCalendarMode() {
         UIView.animate(withDuration: 0.3) {
             self.toggleButton.imageView!.transform = self.toggleButton.imageView!.transform.rotated(by: CGFloat.pi)
@@ -104,7 +97,7 @@ open class YMDatePicker: UIControl {
     }
     
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: self.intrinsicHeight)
+        CGSize(width: UIView.noIntrinsicMetric, height: intrinsicHeight)
     }
 }
 
