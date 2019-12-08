@@ -10,6 +10,7 @@ open class YMDatePicker: UIControl {
     @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet private weak var toggleButton: UIButton!
     @IBOutlet public var delegate: YMDatePickerDelegate?
+    var isFirstLayout = true
     
     public var selectedDate: Date = Calendar.current.startOfDay(for: Date()) {
         didSet {
@@ -20,9 +21,11 @@ open class YMDatePicker: UIControl {
     @IBInspectable public var isMinimum: Bool = true {
         didSet {
             calendarHeight.constant = isMinimum ? 70 : 216
+            
             calendar.reloadData()
             UIView.animate(withDuration: 0.3) {
-                self.calendar.layoutIfNeeded()
+                self.frame.size.height = self.calendarHeight.constant + 32
+                self.view.layoutIfNeeded()
             }
             scroll(to: selectedDate)
             delegate?.ymDatePicker(self, didChange: controlHeight)
@@ -82,6 +85,14 @@ open class YMDatePicker: UIControl {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月"
         titleLabel.text = formatter.string(from: selectedDate)
+    }
+    
+    override open func draw(_ rect: CGRect){
+        super.draw(rect)
+        if isFirstLayout {
+            isFirstLayout = false
+            frame.size.height = calendarHeight.constant + 32
+        }
     }
     
     @IBAction func toggleCalendarMode() {
