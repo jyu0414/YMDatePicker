@@ -10,6 +10,7 @@ open class YMDatePicker: UIControl {
     @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet private weak var toggleButton: UIButton!
     @IBOutlet public var delegate: YMDatePickerDelegate?
+    var isFirstLayout = true
     
     public var selectedDate: Date = Calendar.current.startOfDay(for: Date()) {
         didSet {
@@ -20,9 +21,11 @@ open class YMDatePicker: UIControl {
     @IBInspectable public var isMinimum: Bool = true {
         didSet {
             calendarHeight.constant = isMinimum ? 70 : 216
+            
             calendar.reloadData()
             UIView.animate(withDuration: 0.3) {
-                self.calendar.layoutIfNeeded()
+                self.intrinsicHeight = self.controlHeight
+                self.layoutIfNeeded()
             }
             scroll(to: selectedDate)
             delegate?.ymDatePicker(self, didChange: controlHeight)
@@ -43,7 +46,8 @@ open class YMDatePicker: UIControl {
     
     public var intrinsicHeight: CGFloat = 70 {
         didSet {
-            self.invalidateIntrinsicContentSize()
+            frame.size.height = intrinsicHeight
+            invalidateIntrinsicContentSize()
         }
     }
     
@@ -93,7 +97,7 @@ open class YMDatePicker: UIControl {
     }
     
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: self.intrinsicHeight)
+        CGSize(width: UIView.noIntrinsicMetric, height: intrinsicHeight)
     }
 }
 

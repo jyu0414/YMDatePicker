@@ -43,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				BAB468C1235CA6EF00047AAD /* YMDatePicker */,
-				BAB468C0235CA6EF00047AAD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +52,7 @@
 				BAB468BF235CA6EF00047AAD /* YMDatePicker.framework */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		BAB468C1235CA6EF00047AAD /* YMDatePicker */ = {
@@ -66,6 +66,7 @@
 				E7D9E23E235CC0CA0084B373 /* YMCalendarCell.xib */,
 				BAA8F3A9235CD9960056377B /* YMDatePickerDelegate.swift */,
 				E7D9E240235CC15F0084B373 /* Assets.xcassets */,
+				BAB468C0235CA6EF00047AAD /* Products */,
 			);
 			path = YMDatePicker;
 			sourceTree = "<group>";
