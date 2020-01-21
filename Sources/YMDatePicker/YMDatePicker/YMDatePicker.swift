@@ -7,10 +7,13 @@ open class YMDatePicker: UIControl {
     private var view: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var calendar: UICollectionView!
-    @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var calendarHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var toggleButton: UIButton!
     @IBOutlet public var delegate: YMDatePickerDelegate?
     var isFirstLayout = true
+    let numberOfDaysOfWeek = 7
+    let minimumHeight: CGFloat = 70
+    let maximumHeight: CGFloat = 216
     
     public var selectedDate: Date = Calendar.current.startOfDay(for: Date()) {
         didSet {
@@ -20,7 +23,7 @@ open class YMDatePicker: UIControl {
     
     @IBInspectable public var isMinimum: Bool = true {
         didSet {
-            calendarHeight.constant = isMinimum ? 70 : 216
+            calendarHeightConstraint.constant = calendarHeight
             
             calendar.reloadData()
             UIView.animate(withDuration: 0.3) {
@@ -38,10 +41,12 @@ open class YMDatePicker: UIControl {
         }
     }
     
+    var calendarHeight: CGFloat {
+        isMinimum ? minimumHeight : maximumHeight
+    }
+    
     public var controlHeight: CGFloat {
-        get {
-            32 + (isMinimum ? 70 : 216)
-        }
+        titleLabel.bounds.height + calendarHeight
     }
     
     public var intrinsicHeight: CGFloat = 70 {
@@ -54,17 +59,20 @@ open class YMDatePicker: UIControl {
     //MARK: Make from storyboard.
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        instatinateFromNib()
+        instantiateFromNib()
     }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        instatinateFromNib()
+        instantiateFromNib()
     }
     
-    func instatinateFromNib() {
+    func instantiateFromNib() {
         //Load view from nib.
-        let view = Bundle(for: type(of: self)).loadNibNamed("YMDatePicker", owner: self, options: nil)!.first as! UIView
+        guard let bundleFirst = Bundle(for: type(of: self)).loadNibNamed("YMDatePicker", owner: self, options: nil)?.first, let view = bundleFirst as? UIView else {
+            assertionFailure("Error: Can't instantiate YMDatePicker")
+            return
+        }
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -107,7 +115,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        isMinimum ? 7 * 2 : 7 * 6
+        numberOfDaysOfWeek * rowCount
     }
     
     private func getDate(indexPath: IndexPath) -> Date {
@@ -115,17 +123,17 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
         let row = indexPath.row / rowCount
         let cal = Calendar.current
         
+        let year = cal.component(.year, from: Date())
+        var month = cal.component(.month, from: Date())
         if isMinimum {
-            let year = cal.component(.year, from: Date())
-            let month = cal.component(.month, from: Date())
             let startDay = cal.date(from: DateComponents(year: year, month: month, day: 1))!
             let startDayNumber = cal.component(.weekday, from: startDay) - 1
-            return  cal.date(byAdding: .day, value: indexPath.section * 7 + row - startDayNumber, to: startDay)!
+            return  cal.date(byAdding: .day, value: indexPath.section * numberOfDaysOfWeek + row - startDayNumber, to: startDay)!
         } else {
-            let month = indexPath.section + cal.component(.month, from: Date())
-            let startDay = cal.date(from: DateComponents(year: cal.component(.year, from: Date()), month: month, day: 1))!
+            month += indexPath.section
+            let startDay = cal.date(from: DateComponents(year: year, month: month, day: 1))!
             let startDayNumber = cal.component(.weekday, from: startDay) - 1
-            return  cal.date(byAdding: .day, value: line * 7 + row - startDayNumber, to: startDay)!
+            return  cal.date(byAdding: .day, value: line * numberOfDaysOfWeek + row - startDayNumber, to: startDay)!
         }
     }
     
@@ -162,7 +170,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 7, height: collectionView.frame.height / CGFloat(rowCount))
+        CGSize(width: collectionView.frame.width / CGFloat(numberOfDaysOfWeek), height: collectionView.frame.height / CGFloat(rowCount))
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
