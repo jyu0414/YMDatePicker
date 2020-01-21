@@ -84,7 +84,7 @@ open class YMDatePicker: UIControl {
         //TODO:Localization
         //Set initial date.
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年MM月"
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "MMMyyyy", options: 0, locale: Locale(identifier: Locale.preferredLanguages.first ?? "en_us"))
         titleLabel.text = formatter.string(from: selectedDate)
     }
     
@@ -143,7 +143,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
         
         if indexPath.row % rowCount == 0 {
             let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "ja")
+            formatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "en_us")
             cell.number.text = formatter.shortWeekdaySymbols[indexPath.row / rowCount]
             cell.type = indexPath.row / rowCount == 0 ? .Holiday : .Weekday
         } else {
@@ -172,7 +172,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年MM月"
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "MMMyyyy", options: 0, locale: Locale(identifier: Locale.preferredLanguages.first ?? "en_us"))
         let row = isMinimum ? 2 : 37
         titleLabel.text = formatter.string(from: getDate(indexPath: IndexPath(row: row, section: Int(scrollView.contentOffset.x / scrollView.frame.width))))
     }

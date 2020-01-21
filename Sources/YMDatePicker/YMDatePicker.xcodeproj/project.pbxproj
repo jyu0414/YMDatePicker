@@ -124,6 +124,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = BAB468B5235CA6EF00047AAD;
 			productRefGroup = BAB468C0235CA6EF00047AAD /* Products */;
