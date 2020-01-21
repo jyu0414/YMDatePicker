@@ -122,9 +122,8 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
             let startDayNumber = cal.component(.weekday, from: startDay) - 1
             return  cal.date(byAdding: .day, value: indexPath.section * 7 + row - startDayNumber, to: startDay)!
         } else {
-            let year = (indexPath.section / 12) + cal.component(.year, from: Date())
             let month = indexPath.section + cal.component(.month, from: Date())
-            let startDay = cal.date(from: DateComponents(year: year, month: month, day: 1))!
+            let startDay = cal.date(from: DateComponents(year: cal.component(.year, from: Date()), month: month, day: 1))!
             let startDayNumber = cal.component(.weekday, from: startDay) - 1
             return  cal.date(byAdding: .day, value: line * 7 + row - startDayNumber, to: startDay)!
         }
