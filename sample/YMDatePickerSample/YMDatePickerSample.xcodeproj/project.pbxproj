@@ -34,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		BAA8F3A7235CD1EB0056377B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		E74298E323D74A45005FEA65 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		E74298E423D74A46005FEA65 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E7B6CF5D235C9FF9007D2D82 /* YMDatePickerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMDatePickerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B6CF60235C9FF9007D2D82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B6CF62235C9FF9007D2D82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = E7B6CF54235C9FF9007D2D82;
 			productRefGroup = E7B6CF5E235C9FF9007D2D82 /* Products */;
@@ -183,6 +186,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7B6CF67235C9FF9007D2D82 /* Base */,
+				E74298E323D74A45005FEA65 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -191,6 +195,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7B6CF6C235C9FFA007D2D82 /* Base */,
+				E74298E423D74A46005FEA65 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -262,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

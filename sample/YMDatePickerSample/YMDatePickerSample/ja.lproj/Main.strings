@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Choose Date!"; ObjectID = "Ipl-o4-N3a"; */
+"Ipl-o4-N3a.text" = "Choose Date!";
+
+/* Class = "UITabBarItem"; title = "Custom Keyboard"; ObjectID = "Uwg-ek-TWh"; */
+"Uwg-ek-TWh.title" = "Custom Keyboard";
+
+/* Class = "UINavigationItem"; title = "Normal Usage"; ObjectID = "fVY-Hp-RMS"; */
+"fVY-Hp-RMS.title" = "Normal Usage";
+
+/* Class = "UINavigationItem"; title = "Custom Keyboard"; ObjectID = "i5j-Rx-DZF"; */
+"i5j-Rx-DZF.title" = "Custom Keyboard";
+
+/* Class = "UITextField"; placeholder = "Tap to Select Date!"; ObjectID = "lym-0B-8kW"; */
+"lym-0B-8kW.placeholder" = "Tap to Select Date!";
+
+/* Class = "UITabBarItem"; title = "Normal Usage"; ObjectID = "tbH-9n-DoS"; */
+"tbH-9n-DoS.title" = "Normal Usage";
