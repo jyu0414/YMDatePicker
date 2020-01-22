@@ -23,14 +23,30 @@ open class YMDatePicker: UIControl {
     
     @IBInspectable public var isMinimum: Bool = true {
         didSet {
-            calendarHeightConstraint.constant = calendarHeight
             
-            calendar.reloadData()
-            UIView.animate(withDuration: 0.3) {
-                self.intrinsicHeight = self.controlHeight
-                self.layoutIfNeeded()
+            if isMinimum {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.intrinsicHeight = self.controlHeight
+                    self.layoutIfNeeded()
+                }, completion: { _ in
+                    self.calendarHeightConstraint.constant = self.calendarHeight
+                    self.calendar.reloadData()
+                    self.layoutIfNeeded()
+                    self.scroll(to: self.selectedDate)
+                })
+            } else {
+                calendarHeightConstraint.constant = calendarHeight
+                
+                calendar.reloadData()
+                UIView.animate(withDuration: 0.3) {
+                    self.intrinsicHeight = self.controlHeight
+                    self.layoutIfNeeded()
+                }
+                scroll(to: selectedDate)
             }
-            scroll(to: selectedDate)
+            
+            
+            
             delegate?.ymDatePicker(self, didChange: controlHeight)
         }
     }
