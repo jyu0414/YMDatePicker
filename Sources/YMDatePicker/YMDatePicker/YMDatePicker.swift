@@ -176,7 +176,7 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
             cell.number.text = "\(cal.component(.day, from: targetDate))"
             if targetDate == selectedDate {
                 cell.type = .SelectedDate
-            } else if targetDate <= Date() {
+            } else if targetDate < Calendar.current.startOfDay(for: Date()) {
                 cell.type = .UnavailableDate
             } else {
                 cell.type = .AvailableDate
@@ -190,8 +190,10 @@ extension YMDatePicker: UICollectionViewDataSource , UICollectionViewDelegateFlo
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedDate = getDate(indexPath: indexPath)
-        collectionView.reloadData()
+        if let cell = collectionView.cellForItem(at: indexPath) as? YMCalendarCell, cell.type == .AvailableDate {
+            selectedDate = getDate(indexPath: indexPath)
+            collectionView.reloadData()
+        }
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
