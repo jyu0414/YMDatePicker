@@ -1,6 +1,6 @@
 import UIKit
 
 @objc
-public protocol YMDatePickerDelegate {
+public protocol YMDatePickerDelegate: AnyObject {
     func ymDatePicker(_ datePicker: YMDatePicker, didChange height: CGFloat)
 }

@@ -7,19 +7,20 @@ class YMCalendarCell: UICollectionViewCell {
             bgView.isHidden = true
             switch type {
             case .Holiday:
-                number.textColor = UIColor(red: 1, green: 70/255, blue: 70/255, alpha: 1)
+                number.textColor = UIColor.systemRed
                 break
             case .Weekday:
-                number.textColor = UIColor(red: 45/255, green: 45/255, blue: 44/255, alpha: 1)
+                number.textColor = UIColor.label
                 break
             case .UnavailableDate:
-                number.textColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
+                number.textColor = UIColor.systemGray3
                 break
             case .AvailableDate:
-                number.textColor = UIColor(red: 77/255, green: 77/255, blue: 96/255, alpha: 1)
+                number.textColor = UIColor.label
                 break
             case .SelectedDate:
-                number.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+                number.textColor = UIColor.systemBackground
+                bgView.backgroundColor = self.tintColor
                 bgView.isHidden = false
                 bgView.layer.cornerRadius = frame.height / 2
                 bgView.clipsToBounds = true
@@ -29,6 +30,7 @@ class YMCalendarCell: UICollectionViewCell {
     }
     @IBOutlet weak private var bgView: UIView!
 }
+
 
 enum DateType {
     case Holiday
